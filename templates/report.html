@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href="/" class="btn btn-secondary back-btn mb-3">← Back to Home</a>
+<h4>Export Livestock Report</h4>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Animal ID</label>
+        <input type="text" name="animal_id" class="form-control" required>
+    </div>
+
+    <div class="dropdown mt-3">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            Export Format
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <button type="submit" name="export_type" value="pdf" class="dropdown-item">Export as PDF</button>
+            </li>
+            <li>
+                <button type="submit" name="export_type" value="excel" class="dropdown-item">Export as Excel</button>
+            </li>
+        </ul>
+    </div>
+</form>
+{% endblock %}

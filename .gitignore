@@ -1,0 +1,35 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# Environment variables
+.env
+
+# Database and sensitive files
+*.db
+*.sqlite3
+
+# Compiled files
+*.log
+
+# Flask runtime files
+instance/
+*.pyc
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode and IDE settings
+.vscode/
+.idea/
+
+# PDFs or reports
+static/*.pdf
+"__pycache__/" 

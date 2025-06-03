@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="text-center mb-5">
+    <h1>Welcome to EverGraze Farms</h1>
+    <p class="text-muted">Manage your cattle farm efficiently with our comprehensive tools.</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    <div class="col">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <div class="mb-3 fs-1">➕</div>
+                <h5 class="card-title">Add Livestock</h5>
+                <p class="card-text">Record new cattle details</p>
+                <a href="/livestock" class="btn btn-success">Go</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <div class="mb-3 fs-1">⚖️</div>
+                <h5 class="card-title">Weight Tracking</h5>
+                <p class="card-text">Log and monitor weights</p>
+                <a href="/weight" class="btn btn-success">Go</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <div class="mb-3 fs-1">💉</div>
+                <h5 class="card-title">Vaccination</h5>
+                <p class="card-text">Track vaccination records</p>
+                <a href="/vaccination" class="btn btn-success">Go</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <div class="mb-3 fs-1">📁</div>
+                <h5 class="card-title">View & Manage Records</h5>
+                <p class="card-text">Access and edit your data</p>
+                <a href="/manage" class="btn btn-primary">Open</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <div class="mb-3 fs-1">📤</div>
+                <h5 class="card-title">Export Reports</h5>
+                <p class="card-text">Download Excel or PDF files</p>
+                <a href="/export_select" class="btn btn-secondary">Download</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <canvas id="barChart"></canvas>
+    </div>
+    <div class="col-md-6 mb-4">
+        <canvas id="pieChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctxBar = document.getElementById('barChart');
+new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{ label: 'Cattle Added', data: [10, 12, 8, 14, 16, 18], backgroundColor: '#5a9367' }]
+    },
+    options: { responsive: true, plugins: { legend: { display: false } } }
+});
+
+const ctxPie = document.getElementById('pieChart');
+new Chart(ctxPie, {
+    type: 'pie',
+    data: {
+        labels: ['Vaccinated', 'Pending'],
+        datasets: [{ data: [75, 25], backgroundColor: ['#5a9367', '#cccccc'] }]
+    },
+    options: { responsive: true }
+});
+</script>
+{% endblock %}

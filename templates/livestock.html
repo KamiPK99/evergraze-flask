@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Add Livestock Record</h2>
+<form method="post">
+    <div class="row">
+        {% for field in ['Animal ID', 'Name', 'Breed', 'Age', 'Purchase Date', 'Source'] %}
+        <div class="col-md-4 mb-3">
+            <label>{{ field }}</label>
+            <input type="text" name="{{ field.lower().replace(' ', '_') }}" class="form-control" required>
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-success">Add Record</button>
+</form>
+
+<hr>
+<h4>Recent Livestock Entries</h4>
+<div class="table-responsive">
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr><th>ID</th><th>Name</th><th>Breed</th><th>Age</th><th>Purchase Date</th><th>Source</th></tr>
+    </thead>
+    <tbody>
+        {% for row in records[:10] %}
+        <tr>{% for val in row[1:] %}<td>{{ val }}</td>{% endfor %}</tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
